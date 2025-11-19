@@ -5,10 +5,9 @@ import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
 const Menu = () => {
      const [category, setCategory] = useState('All');
   return (
-    <div>
-        <ExploreMenu category={category}  setCategory={setCategory} />
+    <div >
+        <ExploreMenu  category={category}  setCategory={setCategory} />
         <FoodDisplay category={category} setCategory={setCategory}/>
-        
     </div>
   )
 }

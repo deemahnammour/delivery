@@ -10,15 +10,23 @@ const Navbar = ({ setShowLogin }) => {
 
   const {getTotalCartAmount} = useContext(StoreContext)
 
+  const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
   return (
     <div className='navbar'>
       <Link to='/'><img src={assets.logo} alt='' className='logo' /></Link>
       <ul className="navbar-menu">
         <Link to='/' onClick={() => setMenu("Home")} className={menu === 'Home' ? 'active' : ''}>Home</Link>
-        <a href='#explore-menu' onClick={() => setMenu("Menu")} className={menu === 'Menu' ? 'active' : ''}>Menu</a>
-        <a href='#app-download' onClick={() => setMenu("Mobile-App")} className={menu === 'Mobile-App' ? 'active' : ''}>Mobile-App</a>
-        <a href='#footer' onClick={() => setMenu("Contect-us")} className={menu === 'Contect-us' ? 'active' : ''} >Contect us</a>
-      </ul>
+        <a onClick={() => { setMenu("Menu"); scrollToSection('explore-menu'); }} className={menu === 'Menu' ? 'active' : ''}> Menu</a>
+        <a onClick={() => { setMenu("Mobile-App"); scrollToSection('app-download'); }} className={menu === 'Mobile-App' ? 'active' : ''}>Mobile App</a>
+        <a onClick={() => { setMenu("Contect-us"); scrollToSection('footer'); }} className={menu === 'Contect-us' ? 'active' : ''}>Contact Us</a>
+       </ul>
+
       <div className="navbar-right">
 
         <img src={assets.search_icon} alt='' />
